@@ -32,7 +32,8 @@ const exampleMovies = require("./movies");
  */
 
 function getAllMovieTitles(movies) {
-  if (movies.length === 0) throw "Error. There is no movie title"
+  
+  if (movies.length === 0) throw "Error. There is no movie title";
   let newMovieArr = []
   movies.map((movie) => newMovieArr.push(movie.title));
   
@@ -59,8 +60,9 @@ function getAllMovieTitles(movies) {
  */
 
 function checkIfAnyMovieHasRating(movies, rated = "G") {
-if (movies.length === 0) throw "Error. There is no movie title"
-  return movies.some((movie) => movie.rated === rated)
+
+if (movies.length === 0) throw "Error. There is no movie title";
+  return movies.some((movie) => movie.rated === rated);
 }
 
 
@@ -82,9 +84,10 @@ if (movies.length === 0) throw "Error. There is no movie title"
  */
 
 function findById(movies, id) {
+
 if (movies.length === 0) throw "Error. There is no movie title"  
-let filteredbyId = movies.find((movie) => movie.imdbID === id)
-return (!filteredbyId) ? null: filteredbyId
+let filteredbyId = movies.find((movie) => movie.imdbID === id);
+return (!filteredbyId) ? null: filteredbyId;
 }
 
 /**
@@ -111,8 +114,9 @@ return (!filteredbyId) ? null: filteredbyId
  */
 
 function filterByGenre(movies, genre) {
-if (movies.length === 0) throw "Error. There is no movie title" 
-let moviesFiltered = movies.filter((movie) => movie.genre.toLowerCase().split(", ").includes(genre.toLowerCase()))
+
+if (movies.length === 0) throw "Error. There is no movie title";
+let moviesFiltered = movies.filter((movie) => movie.genre.toLowerCase().split(", ").includes(genre.toLowerCase()));
 return (!moviesFiltered.length) ? [] : moviesFiltered;
 }
 
@@ -141,8 +145,9 @@ return (!moviesFiltered.length) ? [] : moviesFiltered;
     ];
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
-  if(movies.length === 0) throw "The movie array is empty";
-  return movies.filter((movie)=> Number(movie.released.split(" ")[2]) <= year);
+
+if(movies.length === 0) throw "The movie array is empty";
+return movies.filter((movie)=> Number(movie.released.split(" ")[2]) <= year);
 }
 
 
@@ -172,8 +177,9 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  */
 
 function getRottenTomatoesScoreByMovie(movies) {
-if (movies.length === 0) throw "Error. There is no movie title"
-return movies.map((a) => ({[a.title]: a.ratings.find((b) => b.source === "Rotten Tomatoes")['value']}))  
+
+if (movies.length === 0) throw "Error. There is no movie title";
+return movies.map((a) => ({[a.title]: a.ratings.find((b) => b.source === "Rotten Tomatoes")['value']}));  
 }
 
 // Do not change anything below this line.
